@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="PokemonSolid.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -24,23 +29,57 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNL-gp-sAf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyan's Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9H-n0-q0v">
-                                        <rect key="frame" x="208" y="19" width="185" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kyan's Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9H-n0-q0v">
+                                        <rect key="frame" x="187" y="11" width="227" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="185" id="IV9-Ti-w6A"/>
                                             <constraint firstAttribute="height" constant="21" id="TnP-FW-vQK"/>
+                                            <constraint firstAttribute="height" constant="40" id="Zhi-Sk-VHa"/>
+                                            <constraint firstAttribute="width" constant="227" id="fqa-0o-3H3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="IV9-Ti-w6A"/>
+                                                <exclude reference="TnP-FW-vQK"/>
+                                                <exclude reference="Zhi-Sk-VHa"/>
+                                            </mask>
+                                        </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFL-hj-UuI">
+                                        <rect key="frame" x="508" y="-314" width="411" height="403"/>
+                                        <state key="normal" image="noun_104865_cc"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXr-KI-N7Y">
+                                        <rect key="frame" x="563" y="26" width="29" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Ay1-9b-VHN"/>
+                                            <constraint firstAttribute="width" constant="29" id="Zgi-KA-bwf"/>
+                                        </constraints>
+                                        <state key="normal" image="noun_104865_cc"/>
+                                        <connections>
+                                            <action selector="musicPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iFO-4c-h6w"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DXr-KI-N7Y" secondAttribute="trailing" constant="4" id="1DX-c2-qI5"/>
                                     <constraint firstItem="K9H-n0-q0v" firstAttribute="top" secondItem="BNL-gp-sAf" secondAttribute="top" constant="19" id="6b1-K6-sE2"/>
+                                    <constraint firstItem="K9H-n0-q0v" firstAttribute="centerX" secondItem="BNL-gp-sAf" secondAttribute="centerX" id="7mj-oA-NDe"/>
                                     <constraint firstItem="K9H-n0-q0v" firstAttribute="centerX" secondItem="BNL-gp-sAf" secondAttribute="centerX" id="BLw-t0-eWY"/>
                                     <constraint firstAttribute="height" constant="55" id="MeT-oH-eE1"/>
+                                    <constraint firstAttribute="bottom" secondItem="DXr-KI-N7Y" secondAttribute="bottom" constant="4" id="Skb-cV-75g"/>
+                                    <constraint firstItem="K9H-n0-q0v" firstAttribute="centerY" secondItem="BNL-gp-sAf" secondAttribute="centerY" id="caJ-09-YzD"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6b1-K6-sE2"/>
+                                        <exclude reference="7mj-oA-NDe"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-r9-Qip">
                                 <rect key="frame" x="0.0" y="59" width="600" height="44"/>
@@ -131,6 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="VuS-qk-UMm" id="JgZ-h0-uXq"/>
+                        <outlet property="musicBtn" destination="DXr-KI-N7Y" id="Z8W-ja-WTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,5 +181,6 @@
     <resources>
         <image name="297" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="noun_104865_cc" width="700" height="700"/>
     </resources>
 </document>
