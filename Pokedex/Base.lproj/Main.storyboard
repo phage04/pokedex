@@ -23,8 +23,22 @@
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNL-gp-sAf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyan's Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9H-n0-q0v">
+                                        <rect key="frame" x="208" y="19" width="185" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="185" id="IV9-Ti-w6A"/>
+                                            <constraint firstAttribute="height" constant="21" id="TnP-FW-vQK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="K9H-n0-q0v" firstAttribute="top" secondItem="BNL-gp-sAf" secondAttribute="top" constant="19" id="6b1-K6-sE2"/>
+                                    <constraint firstItem="K9H-n0-q0v" firstAttribute="centerX" secondItem="BNL-gp-sAf" secondAttribute="centerX" id="BLw-t0-eWY"/>
                                     <constraint firstAttribute="height" constant="55" id="MeT-oH-eE1"/>
                                 </constraints>
                             </view>
