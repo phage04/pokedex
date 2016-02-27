@@ -222,6 +222,9 @@
                                             <constraint firstAttribute="height" constant="47" id="s5B-DY-w5H"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="g8x-w7-fwE" eventType="touchUpInside" id="qfU-pg-E8G"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -257,8 +260,9 @@
                                                     <constraint firstAttribute="width" constant="120" id="sA9-bG-nUv"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aosijdfpaoirjfpoaeirjfpoaijfpoaerifjaosdjifaos; difjapsodifjasdofijasdofijasdofijasdpofijas dfopijasd" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-Hf-i8p">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-Hf-i8p">
                                                 <rect key="frame" x="120" y="0.0" width="440" height="120"/>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -434,7 +438,18 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="attackLabel" destination="HTg-m8-rjn" id="uF7-GU-NZD"/>
+                        <outlet property="currentEvoImg" destination="Ppv-Iw-Bi9" id="DOv-HT-NvI"/>
+                        <outlet property="defenseLabel" destination="fBF-HQ-ZCc" id="5e0-vG-yCT"/>
+                        <outlet property="descriptionLabel" destination="jTP-Hf-i8p" id="zWx-xm-v45"/>
+                        <outlet property="evoLabel" destination="w9u-4e-2qR" id="iEi-dV-Lu5"/>
+                        <outlet property="heightLabel" destination="esS-Ch-hg1" id="g3z-GT-GFk"/>
+                        <outlet property="mainImage" destination="egu-UR-qCQ" id="HIv-QX-SKt"/>
                         <outlet property="nameLbl" destination="E8u-Mv-YJu" id="VBe-Es-1mZ"/>
+                        <outlet property="nextEvoImg" destination="RxV-AQ-WdY" id="9Vo-tt-pVV"/>
+                        <outlet property="pokedexIdLabel" destination="8US-Pv-677" id="nQy-dU-2dB"/>
+                        <outlet property="typeLabel" destination="hJq-Kl-x6D" id="L51-JQ-SXC"/>
+                        <outlet property="weightLabel" destination="3UU-f5-aoD" id="MHq-BO-5dt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf3-AO-9hK" userLabel="First Responder" sceneMemberID="firstResponder"/>
