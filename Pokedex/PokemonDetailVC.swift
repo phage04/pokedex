@@ -8,8 +8,16 @@
 
 import UIKit
 
-class PokemonDetailVC: UIViewController {
+class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    @IBOutlet weak var nextEvoImgStack: UIStackView!
+    @IBOutlet weak var nextEvoStack: UIView!
+    @IBOutlet weak var weightStack: UIStackView!
+    @IBOutlet weak var heightStack: UIStackView!
+    @IBOutlet weak var borderStack: UIView!
+    @IBOutlet weak var typeAndDefStack: UIStackView!
+    @IBOutlet weak var imageAndDescStack: UIStackView!
+    @IBOutlet weak var movesTable: UITableView!
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var nameLbl: UILabel!
@@ -39,7 +47,7 @@ class PokemonDetailVC: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+            movesTable.hidden = true
             nameLbl.text = pokemon.name.capitalizedString
             let img = UIImage(named: "\(pokemon.pokedexId)")
             mainImage.image = img
@@ -47,16 +55,25 @@ class PokemonDetailVC: UIViewController {
             
             
             pokemon.downloadPokemonDetails { () -> () in
-            
-             self.updateUI()
                 
+                self.updateUI()
                 
             }
+
            
             
         }
     
     func updateUI() {
+        
+            movesTable.hidden = true
+            imageAndDescStack.hidden = false
+            typeAndDefStack.hidden = false
+            heightStack.hidden = false
+            weightStack.hidden = false
+            borderStack.hidden = false
+            nextEvoImgStack.hidden = false
+            nextEvoStack.hidden = false
         
             descriptionLabel.text = pokemon.description
             typeLabel.text = pokemon.type.capitalizedString
@@ -86,6 +103,15 @@ class PokemonDetailVC: UIViewController {
     
     func updateUISegment2 () {
         
+        movesTable.hidden = false
+        imageAndDescStack.hidden = true
+        typeAndDefStack.hidden = true
+        heightStack.hidden = true
+        weightStack.hidden = true
+        borderStack.hidden = true
+        nextEvoImgStack.hidden = true
+        nextEvoStack.hidden = true
+        
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
@@ -99,16 +125,40 @@ class PokemonDetailVC: UIViewController {
         case 0:
             updateUI()
         case 1:
-            updateUISegment2()            
+            updateUISegment2()
+            movesTable.reloadData()
+            
+            
         default:
             break;
         }
         
     }
     
-
- 
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.accessoryType = UITableViewCellAccessoryType.DetailButton
+        
+        if pokemon.moveNames[indexPath.row] != "" {
+        cell.textLabel?.text = "\(pokemon.moveNames[indexPath.row])"
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+        
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        return pokemon.moveNames.count
+    }
+
 
 
 

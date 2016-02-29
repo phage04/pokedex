@@ -22,6 +22,11 @@ class Pokemon {
     private var _pokemonUrl: String!
     private var _nextEvoId: String!
     private var _nextEvoLvl: String!
+    private var _moveNames = [String]()
+    private var _moveLearnType = [String]()
+    private var _moveLevel = [String]()
+    
+    
     
     var name: String {
         return _name
@@ -29,6 +34,18 @@ class Pokemon {
     
     var pokedexId: Int {
         return _pokedexId
+    }
+    
+    var moveNames: [String] {
+        return _moveNames
+    }
+    
+    var moveLearnType: [String] {
+        return _moveLearnType
+    }
+    
+    var moveLevel: [String] {
+        return _moveLevel
     }
     
     var description: String {
@@ -120,6 +137,8 @@ class Pokemon {
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
+                
+            
                 if let weight = dict["weight"] as? String {
                     self._weight = weight
                 }
@@ -136,7 +155,8 @@ class Pokemon {
                     self._defense = "\(defense)"
                 }
                 
-
+                
+        
                 
                 if let types = dict["types"] as? [Dictionary<String, String>] where types.count > 0 {
                     
@@ -156,6 +176,8 @@ class Pokemon {
                 } else {
                     self._type = ""
                 }
+                
+    
             
                 
                 if let descArr = dict["descriptions"] as? [Dictionary<String, String>] where descArr.count > 0 {
@@ -212,10 +234,36 @@ class Pokemon {
                     
                 }
                 
-                
-                
-                
+                if let pokeMoves = dict["moves"] as? [Dictionary<String, AnyObject>] where pokeMoves.count > 0 {
                     
+        
+                    for var x = 0; x < pokeMoves.count; x++ {
+                        
+                        if let moveName = pokeMoves[x]["name"] as? String {
+                            self._moveNames.append(moveName)
+                            print(self._moveNames[x], x)
+                        }
+                        
+                        //                        if let moveType = pokeMoves[x]["learn_type"] as? String {
+                        //                            self._moveLearnType.append(moveType)
+                        //                            print(self._moveLearnType[x])
+                        //                        }
+                        //
+                        //                        if let moveLevel = pokeMoves[x]["level"] as? String {
+                        //                            self._moveLevel.append(moveLevel)
+                        //                            print(self._moveLevel[x])
+                        //                        }
+                        
+                        
+                        
+                    }
+
+                    
+                    
+                }
+                
+                
+                
             }
             
             
