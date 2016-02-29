@@ -241,18 +241,8 @@ class Pokemon {
                         
                         if let moveName = pokeMoves[x]["name"] as? String {
                             self._moveNames.append(moveName)
-                            print(self._moveNames[x], x)
+                            
                         }
-                        
-                        //                        if let moveType = pokeMoves[x]["learn_type"] as? String {
-                        //                            self._moveLearnType.append(moveType)
-                        //                            print(self._moveLearnType[x])
-                        //                        }
-                        //
-                        //                        if let moveLevel = pokeMoves[x]["level"] as? String {
-                        //                            self._moveLevel.append(moveLevel)
-                        //                            print(self._moveLevel[x])
-                        //                        }
                         
                         
                         

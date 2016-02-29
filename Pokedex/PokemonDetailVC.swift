@@ -142,8 +142,7 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.accessoryType = UITableViewCellAccessoryType.DetailButton
-        
+                
         if pokemon.moveNames[indexPath.row] != "" {
         cell.textLabel?.text = "\(pokemon.moveNames[indexPath.row])"
             return cell
