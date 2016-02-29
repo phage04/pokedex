@@ -10,6 +10,8 @@ import UIKit
 
 class PokemonDetailVC: UIViewController {
 
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -82,9 +84,30 @@ class PokemonDetailVC: UIViewController {
         
     }
     
+    func updateUISegment2 () {
+        
+    }
+    
     @IBAction func backBtnPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
+        
+        switch segmentControl.selectedSegmentIndex {
+            
+        case 0:
+            updateUI()
+        case 1:
+            updateUISegment2()            
+        default:
+            break;
+        }
+        
+    }
+    
+
+ 
     
 
 
