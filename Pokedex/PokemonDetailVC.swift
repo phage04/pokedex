@@ -153,10 +153,27 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+
+        
+        performSegueWithIdentifier("MoveDetailVC", sender: pokemon)
+    }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         return pokemon.moveNames.count
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MoveDetailVC" {
+            if let moveDetailsVC = segue.destinationViewController as? MoveDetailVC{
+                if let poke = sender as? Pokemon {
+                    moveDetailsVC.pokemon = poke
+                }
+            }
+        }
     }
 
 
