@@ -197,24 +197,6 @@
                                         <rect key="frame" x="508" y="-314" width="411" height="403"/>
                                         <state key="normal" image="noun_104865_cc"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Charizard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8u-Mv-YJu">
-                                        <rect key="frame" x="157" y="19" width="287" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="DE3-N6-1E6"/>
-                                            <constraint firstAttribute="height" constant="21" id="RwE-oU-5h3"/>
-                                            <constraint firstAttribute="width" constant="287" id="VYm-Mt-XLk"/>
-                                            <constraint firstAttribute="width" constant="150" id="l3Q-Pt-Jqe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="RwE-oU-5h3"/>
-                                                <exclude reference="l3Q-Pt-Jqe"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-t7-9Nr">
                                         <rect key="frame" x="8" y="9" width="41" height="47"/>
                                         <constraints>
@@ -226,6 +208,26 @@
                                             <action selector="backBtnPressed:" destination="g8x-w7-fwE" eventType="touchUpInside" id="qfU-pg-E8G"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Charizard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8u-Mv-YJu">
+                                        <rect key="frame" x="157" y="9" width="287" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="DE3-N6-1E6"/>
+                                            <constraint firstAttribute="height" constant="21" id="RwE-oU-5h3"/>
+                                            <constraint firstAttribute="width" constant="287" id="VYm-Mt-XLk"/>
+                                            <constraint firstAttribute="height" constant="40" id="i9b-W1-Fw7"/>
+                                            <constraint firstAttribute="width" constant="150" id="l3Q-Pt-Jqe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DE3-N6-1E6"/>
+                                                <exclude reference="RwE-oU-5h3"/>
+                                                <exclude reference="l3Q-Pt-Jqe"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -416,6 +418,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bah-Ru-4Y7">
                                 <rect key="frame" x="20" y="133" width="560" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="PokemonDetailVC" id="lkM-Y2-3sE" customClass="PokemonDetailCell">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lkM-Y2-3sE" id="aJU-bR-42t">
+                                            <rect key="frame" x="0.0" y="0.0" width="513" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="g8x-w7-fwE" id="jfy-NV-4xX"/>
                                     <outlet property="delegate" destination="g8x-w7-fwE" id="RKw-e0-ahy"/>

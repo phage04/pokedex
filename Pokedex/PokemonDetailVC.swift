@@ -10,6 +10,7 @@ import UIKit
 
 class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    
     @IBOutlet weak var nextEvoImgStack: UIStackView!
     @IBOutlet weak var nextEvoStack: UIView!
     @IBOutlet weak var weightStack: UIStackView!
@@ -141,8 +142,8 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
-                
+        let cell = movesTable.dequeueReusableCellWithIdentifier("PokemonDetailVC", forIndexPath: indexPath)
+        
         if pokemon.moveNames[indexPath.row] != "" {
         cell.textLabel?.text = "\(pokemon.moveNames[indexPath.row])"
             return cell
