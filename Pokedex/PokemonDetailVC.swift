@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
@@ -45,6 +46,7 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     var pokemon: Pokemon!
+    var move = [Move]()
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -98,7 +100,7 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         }
         
-        
+        downloadPokemonMoves()
         
     }
     
@@ -113,6 +115,9 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         nextEvoImgStack.hidden = true
         nextEvoStack.hidden = true
         
+    
+        
+    
     }
     
     @IBAction func backBtnPressed(sender: AnyObject) {
@@ -153,12 +158,16 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-
-        
-        performSegueWithIdentifier("MoveDetailVC", sender: pokemon)
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        for var x = 0; x < move.count; x++ {
+            
+            if pokemon.moveNames[indexPath.row] == move[x].moveName {
+                performSegueWithIdentifier("MoveDetailVC", sender: move[x])
+            }
+        }
     }
+    
+
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -169,14 +178,43 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "MoveDetailVC" {
             if let moveDetailsVC = segue.destinationViewController as? MoveDetailVC{
-                if let poke = sender as? Pokemon {
-                    moveDetailsVC.pokemon = poke
+                if let move = sender as? Move {
+                    moveDetailsVC.move = move
                 }
             }
         }
     }
 
+    func downloadPokemonMoves () {
+        
+        
+        let url = NSURL(string: pokemon.pokemonUrl)!
+        
+        Alamofire.request(.GET, url).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let pokeMoves = dict["moves"] as? [Dictionary<String, AnyObject>] where pokeMoves.count > 0 {
+                    
+                    
+                    for var x = 0; x < pokeMoves.count; x++ {
 
+                        
+                        let MoveIt = Move(moveName: "\(pokeMoves[x]["name"])", moveDesc: "\(pokeMoves[x]["name"])", levelReq: "\(pokeMoves[x]["level"])", learnType: "\(pokeMoves[x]["learn_type"])")
+                        
+                        
+                        self.move.append(MoveIt)
 
+  
+                        
+                    }
+    
+                }
+  
+            }
+  
+        }
 
+    }
 }

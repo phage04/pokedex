@@ -11,15 +11,26 @@ import UIKit
 class MoveDetailVC: UIViewController {
 
     var pokemon: Pokemon!
+    var move: Move!
    
+    @IBOutlet weak var learnTypeLbl: UILabel!
+    @IBOutlet weak var levelReqLbl: UILabel!
+    @IBOutlet weak var moveDescLbl: UILabel!
+    @IBOutlet weak var moveNameLbl: UILabel!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    print(move.moveName)
+//        if move.moveName != "" {
+//        moveNameLbl.text = move.moveName
+//        } else {
+//            moveNameLbl.text = "Patay"
+//        }
     }
+    
     
  
     @IBAction func backBtnMovePressed(sender: AnyObject) {

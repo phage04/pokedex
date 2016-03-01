@@ -109,7 +109,13 @@ class Pokemon {
         }
         return _nextEvoId
     }
-    
+
+    var pokemonUrl: String {
+        if _pokemonUrl == nil {
+            _pokemonUrl = ""
+        }
+        return _pokemonUrl
+    }
     var nextEvolutionLvl: String {
         if _nextEvoLvl == nil {
             _nextEvoLvl = ""

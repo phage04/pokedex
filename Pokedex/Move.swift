@@ -7,16 +7,19 @@
 //
 
 import Foundation
-import Alamofire
+
 
 class Move {
     
-    private var _learnType: String!
+    private var _learnType:String!
     private var _levelReq: String!
     private var _moveDesc: String!
     private var _moveName: String!
+    private var _pokemonUrl: String!
+    private var _pokedexId: Int!
     
-    var movename: String {
+    
+    var moveName: String {
         
         if _moveName == nil {
             _moveName = ""
@@ -25,7 +28,7 @@ class Move {
         
     }
     
-    var learntype: String {
+    var learnType: String {
         
         if _learnType == nil {
             _learnType = ""
@@ -34,7 +37,7 @@ class Move {
         
     }
     
-    var levelreq: String {
+    var levelReq: String {
         
         if _levelReq == nil {
             _levelReq = ""
@@ -43,7 +46,7 @@ class Move {
         
     }
     
-    var movedesc: String {
+    var moveDesc: String {
         
         if _moveDesc == nil {
             _moveDesc = ""
@@ -51,27 +54,18 @@ class Move {
         return _moveDesc
         
     }
-    
-    
-    
-    
-    init (name: String, learntype: String, movedesc: String, levelreq: String){
-        
-        self._moveName = name
-        self._learnType = learntype
-        self._levelReq = levelreq
-        self._moveDesc = movedesc
+
+    init (moveName: String, moveDesc: String, levelReq: String, learnType: String) {
+     
+        self._moveName = moveName
+        self._moveDesc = moveDesc
+        self._learnType = learnType
+        self._levelReq  = levelReq
     }
-    
-    
-    func downloadPokemonMoves (completed: DownloadComplete, pokedexid: Int) {
-        
-        
-        
-    }
-    
-    
-    
-    
-    
 }
+
+
+
+    
+    
+   

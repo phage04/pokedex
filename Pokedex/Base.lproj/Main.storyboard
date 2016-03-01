@@ -658,6 +658,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="learnTypeLbl" destination="XEe-r8-Upj" id="s2b-Fb-rQq"/>
+                        <outlet property="levelReqLbl" destination="cyl-HD-U2I" id="M8N-y9-cf1"/>
+                        <outlet property="moveDescLbl" destination="9vX-Jt-yNu" id="WHZ-ki-6Vk"/>
+                        <outlet property="moveNameLbl" destination="zCe-9b-0Tf" id="UEH-eq-BpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1M-OM-Jmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
