@@ -159,11 +159,21 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        let movee: Move!
+        
+        movee = move[indexPath.row]
+  
+        performSegueWithIdentifier("MoveDetailVC", sender: movee)
+        
+        
+    }
     
-            
-        performSegueWithIdentifier("MoveDetailVC", sender: move[indexPath.row])
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let movee: Move!
         
-        
+        movee = move[indexPath.row]
+    
+        performSegueWithIdentifier("MoveDetailVC", sender: movee)
     }
     
 
@@ -177,8 +187,8 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "MoveDetailVC" {
             if let moveDetailsVC = segue.destinationViewController as? MoveDetailVC{
-                if let move = sender as? Move {
-                    moveDetailsVC.move = move
+                if let movee = sender as? Move {
+                    moveDetailsVC.move = movee
                 }
             }
         }

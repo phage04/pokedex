@@ -23,12 +23,7 @@ class MoveDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    print(move.moveName)
-//        if move.moveName != "" {
-//        moveNameLbl.text = move.moveName
-//        } else {
-//            moveNameLbl.text = "Patay"
-//        }
+    moveNameLbl.text = move.moveName
     }
     
     
