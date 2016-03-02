@@ -149,8 +149,8 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let cell = movesTable.dequeueReusableCellWithIdentifier("PokemonDetailVC", forIndexPath: indexPath)
         
-        if pokemon.moveNames[indexPath.row] != "" {
-        cell.textLabel?.text = "\(pokemon.moveNames[indexPath.row])"
+        if move[indexPath.row].moveName != "" {
+        cell.textLabel?.text = "\(move[indexPath.row].moveName)"
             return cell
         } else {
             return UITableViewCell()
@@ -159,12 +159,11 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        for var x = 0; x < move.count; x++ {
+    
             
-            if pokemon.moveNames[indexPath.row] == move[x].moveName {
-                performSegueWithIdentifier("MoveDetailVC", sender: move[x])
-            }
-        }
+        performSegueWithIdentifier("MoveDetailVC", sender: move[indexPath.row])
+        
+        
     }
     
 
@@ -172,7 +171,7 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return pokemon.moveNames.count
+        return move.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -201,12 +200,12 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                     for var x = 0; x < pokeMoves.count; x++ {
 
                         
-                        let MoveIt = Move(moveName: "\(pokeMoves[x]["name"])", moveDesc: "\(pokeMoves[x]["name"])", levelReq: "\(pokeMoves[x]["level"])", learnType: "\(pokeMoves[x]["learn_type"])")
+                        let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", moveDesc: "\(pokeMoves[x]["name"]!)", levelReq: "\(pokeMoves[x]["level"])", learnType: "\(pokeMoves[x]["learn_type"])")
                         
                         
                         self.move.append(MoveIt)
-
-  
+                        
+                    
                         
                     }
     
