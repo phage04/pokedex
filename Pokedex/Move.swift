@@ -30,20 +30,30 @@ class Move {
     
     var learnType: String {
         
+        set {
+        _learnType = learnType
+        }
+        
+        get {
         if _learnType == nil {
             _learnType = ""
         }
         return _learnType
+        }
         
     }
     
     var levelReq: String {
         
-        if _levelReq == nil {
-            _levelReq = ""
+        set {
+            _levelReq = levelReq
+        }
+        get {
+        if _levelReq == nil || _levelReq == "" {
+            _levelReq = "None"
         }
         return _levelReq
-        
+        }
     }
     
     var moveDesc: String {
@@ -55,12 +65,12 @@ class Move {
         
     }
 
-    init (moveName: String, moveDesc: String, levelReq: String, learnType: String) {
+    init (moveName: String, learnType: String, levelReq: String) {
      
         self._moveName = moveName
-        self._moveDesc = moveDesc
         self._learnType = learnType
-        self._levelReq  = levelReq
+        self._levelReq = levelReq
+       // self._moveDesc = moveDesc
     }
 }
 

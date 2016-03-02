@@ -482,7 +482,7 @@
                         <outlet property="typeLabel" destination="hJq-Kl-x6D" id="L51-JQ-SXC"/>
                         <outlet property="weightLabel" destination="3UU-f5-aoD" id="MHq-BO-5dt"/>
                         <outlet property="weightStack" destination="p0Q-e7-nV7" id="WQc-yZ-t0u"/>
-                        <segue destination="bbI-3T-S4L" kind="show" identifier="MoveDetailVC" id="CLd-7k-HPZ"/>
+                        <segue destination="bbI-3T-S4L" kind="modal" identifier="MoveDetailVC" modalTransitionStyle="flipHorizontal" id="CLd-7k-HPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf3-AO-9hK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -502,22 +502,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GtI-OX-edb">
-                                <rect key="frame" x="27" y="75" width="181" height="76"/>
+                                <rect key="frame" x="27" y="75" width="180" height="76"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Acc-eQ-wrq">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="45"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Acc-eQ-wrq">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="45"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-7" translatesAutoresizingMaskIntoConstraints="NO" id="vSL-5O-V1c">
-                                                <rect key="frame" x="0.0" y="0.0" width="181" height="21"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vSL-5O-V1c">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDT-JX-F8V">
-                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <color key="textColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEe-r8-Upj">
-                                                        <rect key="frame" x="109" y="0.0" width="72" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEe-r8-Upj">
+                                                        <rect key="frame" x="110" y="0.0" width="70" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="wtn-0s-fKb"/>
                                                         </constraints>
@@ -531,18 +531,21 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="VMf-7c-QEg"/>
+                                                </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="386-lj-EVQ">
-                                                <rect key="frame" x="0.0" y="25" width="181" height="21"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="386-lj-EVQ">
+                                                <rect key="frame" x="0.0" y="25" width="180" height="21"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level Required:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8Y-sI-TUE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="126" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <color key="textColor" red="1" green="0.41770376570000001" blue="0.45140585360000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-HD-U2I">
-                                                        <rect key="frame" x="140" y="0.0" width="41" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-HD-U2I">
+                                                        <rect key="frame" x="136" y="0.0" width="44" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="8a8-fS-aV4"/>
                                                         </constraints>
@@ -558,6 +561,14 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="188" id="HV2-zu-hQX"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="HV2-zu-hQX"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ng8-JR-c2O">
                                         <rect key="frame" x="0.0" y="55" width="99" height="21"/>

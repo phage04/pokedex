@@ -24,6 +24,8 @@ class MoveDetailVC: UIViewController {
         super.viewDidLoad()
 
     moveNameLbl.text = move.moveName
+    levelReqLbl.text = move.levelReq
+    learnTypeLbl.text = move.learnType
     }
     
     

@@ -208,13 +208,44 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                     
                     for var x = 0; x < pokeMoves.count; x++ {
-
                         
-                        let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", moveDesc: "\(pokeMoves[x]["name"]!)", levelReq: "\(pokeMoves[x]["level"])", learnType: "\(pokeMoves[x]["learn_type"])")
+       
+                    
+                      
+                        if pokeMoves[x]["level"] != nil {
+                            let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "\(pokeMoves[x]["level"]!)")
+                            self.move.append(MoveIt)
+                        } else {
+                             let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "")
+                            self.move.append(MoveIt)
+                        }
                         
                         
-                        self.move.append(MoveIt)
                         
+                        
+                        
+                        
+                            
+//                            if let url = descArr[0]["resource_uri"] {
+//                                
+//                                let nsurl = NSURL(string: "\(URL_BASE)\(url)")!
+//                                
+//                                Alamofire.request(.GET, nsurl).responseJSON { response in
+//                                    let result = response.result
+//                                    
+//                                    if let descDict = result.value as? Dictionary<String, AnyObject> {
+//                                        
+//                                        if let description = descDict["description"] as? String {
+//                                            self._description = description
+//                                            
+//                                        }
+//                                    }
+//                                    //when this is done downloading, whether succeeds or fail, call complete.
+//                                    completed()
+//                                }
+//                                
+//                            }
+                       
                     
                         
                     }
