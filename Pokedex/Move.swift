@@ -65,12 +65,12 @@ class Move {
         
     }
 
-    init (moveName: String, learnType: String, levelReq: String) {
+    init (moveName: String, learnType: String, levelReq: String, moveDesc: String) {
      
         self._moveName = moveName
         self._learnType = learnType
         self._levelReq = levelReq
-       // self._moveDesc = moveDesc
+        self._moveDesc = moveDesc
     }
 }
 

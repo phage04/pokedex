@@ -209,44 +209,15 @@ class PokemonDetailVC: UIViewController, UITableViewDataSource, UITableViewDeleg
                     
                     for var x = 0; x < pokeMoves.count; x++ {
                         
-       
-                    
                       
                         if pokeMoves[x]["level"] != nil {
-                            let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "\(pokeMoves[x]["level"]!)")
+                            let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "\(pokeMoves[x]["level"]!)", moveDesc: "\(pokeMoves[x]["resource_uri"]!)")
                             self.move.append(MoveIt)
                         } else {
-                             let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "")
+                            let MoveIt = Move(moveName: "\(pokeMoves[x]["name"]!)", learnType: "\(pokeMoves[x]["learn_type"]!.capitalizedString)", levelReq: "", moveDesc: "\(pokeMoves[x]["resource_uri"]!)")
                             self.move.append(MoveIt)
                         }
                         
-                        
-                        
-                        
-                        
-                        
-                            
-//                            if let url = descArr[0]["resource_uri"] {
-//                                
-//                                let nsurl = NSURL(string: "\(URL_BASE)\(url)")!
-//                                
-//                                Alamofire.request(.GET, nsurl).responseJSON { response in
-//                                    let result = response.result
-//                                    
-//                                    if let descDict = result.value as? Dictionary<String, AnyObject> {
-//                                        
-//                                        if let description = descDict["description"] as? String {
-//                                            self._description = description
-//                                            
-//                                        }
-//                                    }
-//                                    //when this is done downloading, whether succeeds or fail, call complete.
-//                                    completed()
-//                                }
-//                                
-//                            }
-                       
-                    
                         
                     }
     

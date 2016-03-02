@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MoveDetailVC: UIViewController {
 
@@ -18,14 +19,41 @@ class MoveDetailVC: UIViewController {
     @IBOutlet weak var moveDescLbl: UILabel!
     @IBOutlet weak var moveNameLbl: UILabel!
     
-    
+    var moveDescription: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getMoveDescription { () -> () in
+            
+            
+        }
 
-    moveNameLbl.text = move.moveName
-    levelReqLbl.text = move.levelReq
-    learnTypeLbl.text = move.learnType
+
+    }
+    
+    func updateMoveUI () {
+        moveNameLbl.text = move.moveName
+        levelReqLbl.text = move.levelReq
+        learnTypeLbl.text = move.learnType
+        moveDescLbl.text = moveDescription
+    }
+    
+    func getMoveDescription(completed: DownloadComplete){
+        let nsurl = NSURL(string: "\(URL_BASE)\(move.moveDesc)")!
+        
+        Alamofire.request(.GET, nsurl).responseJSON { response in
+            let result = response.result
+            
+            if let descDict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let description = descDict["description"] as? String {
+                    self.moveDescription = description
+                    self.updateMoveUI()
+                }
+            }
+        }
+
     }
     
     
